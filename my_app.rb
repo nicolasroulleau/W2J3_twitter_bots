@@ -7,19 +7,24 @@ require 'dotenv'
 # This tells dotenv to read the .env file and set the appropriate values in ENV
 Dotenv.load
 
-# quelques lignes qui enregistrent les clés d'APIs
+# Load the pry gem 
+# require pry
+
+# quelques lignes qui enregistrent les clés d'APIs avec DotEnv
 client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = ENV[TWITTER_API_KEY]
-  config.consumer_secret     = ENV[TWITTER_API_SECRET]
-  config.access_token        = ENV[TWITTER_ACCESS_TOKEN]
-  config.access_token_secret = ENV[TWITTER_ACCESS_TOKEN_SECRET]
+  config.consumer_key        = ENV['TWITTER_API_KEY']
+  config.consumer_secret     = ENV['TWITTER_API_SECRET']
+  config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+  config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
 end
+
 p client
 
 # ligne qui permet de tweeter
 client.update('My first ruby tweet!!!!')
 
-
+# ligne qui va twitter Bonjour Monde!
+client.update('Bonjour Monde!')
 
 
 #EXAMPLES
