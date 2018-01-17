@@ -28,4 +28,5 @@ reporters.each do |reporter|
 	timeline = client.user_timeline(id)
 	last_tweet = timeline[0]
 	client.retweet(last_tweet)
+	sleep(10)
 end
